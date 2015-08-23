@@ -18,6 +18,12 @@ $( document ).ready(function() {
     }
   });
 
+  $('#chat-content').on('keyup', '#mensagem', function(evt) {
+    if(evt.which == 13) {
+      $(this).val('');
+    }
+  });
+
   $('.open-chat').click(function(e) {
     e.preventDefault();
     $('#chat-content').html('');

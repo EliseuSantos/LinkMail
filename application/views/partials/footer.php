@@ -13,7 +13,7 @@
 		    	<div id="digitar">
 		    		<div class="row">
 		    			<div class="col-xs-12">
-								<input type="text" class="form-control" id="mensagem">
+		    				<input type="text" class="form-control" id="mensagem">
 		    			</div>
 		    		</div>
 		    	</div>
