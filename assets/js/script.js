@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  var chat_template = $('#chat-template').html();
   $("#destino").keyup(function(){
     var pesq;
     var filter = $(this).val(), count = 0;
@@ -15,5 +16,15 @@ $( document ).ready(function() {
         }
       });
     }
+  });
+
+  $('.open-chat').click(function(e) {
+    e.preventDefault();
+    var nome = $(this).data('pessoa');
+    $('#chat-content').html(chat_template).find('label').append(nome);
+  });
+
+  $('#chat-content').on('click', '.close-chat', function() {
+    $(this).closest('.chat-box').remove();
   });
 });
