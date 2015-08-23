@@ -20,8 +20,15 @@ $( document ).ready(function() {
 
   $('.open-chat').click(function(e) {
     e.preventDefault();
+    $('#chat-content').html('');
     var nome = $(this).data('pessoa');
+    var status = $(this).data('status');
     $('#chat-content').html(chat_template).find('label').append(nome);
+    if(status == 'online') {
+      $('.status').show();
+    }else {
+      $('.status').hide();
+    }
   });
 
   $('#chat-content').on('click', '.close-chat', function() {

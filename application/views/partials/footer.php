@@ -4,6 +4,7 @@
 		<div class="chat-box">
 		    <input type="checkbox" />
 		    <label>
+					<i class="status fa fa-circle text-success"></i>
 		    	<span class="glyphicon glyphicon-remove pull-right close-chat"></span>
 		    </label>
 		    <div class="chat-box-content">
@@ -11,11 +12,8 @@
 		    	</div>
 		    	<div id="digitar">
 		    		<div class="row">
-		    			<div class="col-xs-8">
-		    				<input type="text" class="form-control" id="mensagem">
-		    			</div>
-		    			<div class="col-xs-4">
-		    				<button type="button" class="btn btn-primary btn-sm form-control" id="enviar-mensagem">Enviar</button>
+		    			<div class="col-xs-12">
+								<input type="text" class="form-control" id="mensagem">
 		    			</div>
 		    		</div>
 		    	</div>
