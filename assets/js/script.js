@@ -23,7 +23,6 @@ $( document ).ready(function() {
       $(this).val('');
     }
   });
-
   $('.open-chat').click(function(e) {
     e.preventDefault();
     $('#chat-content').html('');
