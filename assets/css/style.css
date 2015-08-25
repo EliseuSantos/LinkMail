@@ -363,4 +363,45 @@ ul {
     padding: 0px;
     margin: 0px;
 }
- 
+
+#contentbox {
+  width:458px; height:50px;
+  border:solid 2px #333;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:14px;
+  margin-bottom:6px;
+  text-align:left;
+}
+#msgbox {
+  border:solid 1px #dedede;padding:5px;
+  display:none;background-color:#f2f2f2
+}
+#display {
+  display:none;
+  border-left:solid 1px #dedede;
+  border-right:solid 1px #dedede;
+  border-bottom:solid 1px #dedede;
+  overflow:hidden;
+}
+.display_box {
+  padding:4px;
+  border-top:solid 1px #dedede;
+  font-size:12px;
+  height:50px;
+}
+.display_box:hover {
+  background: rgba(59, 89, 152, 0.07);
+  color:#FFFFFF;
+}
+
+.hide {
+  display: none;
+}
+.addnome {
+  font-size: 18px;
+}
+.image {
+  width: 49px;
+  float: left;
+  margin-right: 6px
+}

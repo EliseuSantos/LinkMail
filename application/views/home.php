@@ -30,7 +30,14 @@
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Para</label>
 										<div class="col-lg-10">
-										<input id="destino" type="text" placeholder="" id="inputEmail1" class="form-control">
+											<div class="input-group col-md-12">
+												<span class="input-group-addon hide" id="iconUser">@</span>
+												<input id="destino" type="text" placeholder="" id="inputEmail1" class="form-control">
+											</div>
+												<div id='display'>
+												</div>
+												<div id="msgbox">
+												</div>
 										</div>
 									</div>
 									<div class="form-group">

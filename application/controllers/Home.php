@@ -24,4 +24,11 @@ class Home extends MY_Controller {
     );
     $set = $this->email_model->enviaEmail($data);
   }
+
+  public function getContato() {
+    $q = $_POST['busca'];
+    $q = str_replace("@","",$q);
+    $q = str_replace(" ","%",$q);
+    $get = $this->email_model->getUsuario($q);
+  }
 }

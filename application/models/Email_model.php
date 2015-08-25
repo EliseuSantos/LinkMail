@@ -13,5 +13,11 @@ class Email_model extends MY_Model {
     return $query->result();
   }
 
+  public function getUsuario($data) {
+    $this->db->where('nome like', "%$data%");
+    $query = $this->db->get('contatos');
+    echo json_encode($query->result());
+  }
+
 }
 ?>

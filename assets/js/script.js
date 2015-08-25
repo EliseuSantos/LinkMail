@@ -55,4 +55,45 @@ $( document ).ready(function() {
     });
     $('#novaMensagem').modal('hide');
   });
+  var start=/@/ig; // @ Match
+  var word=/@(\w+)/ig; //@abc Match
+
+  $("#destino").keyup(function(){
+    var content=$(this).val();
+    var go= content.match(start);
+    var name= content.match(word);
+    var dataString = 'busca='+ name;
+    if(go.length>0) {
+      $("#msgbox").slideDown('show');
+      $("#display").slideUp('show');
+      $('#iconUser').removeClass('hide');
+      $("#msgbox").html("Digite parte do nome para pesquisar usuários...");
+      if(name.length>0 || name != null) {
+        $.ajax({
+          type: "POST",
+          url: baseUrl + 'home/getContato',
+          data: dataString,
+          dataType: "json",
+          success: function(data) {
+            $("#display").html('<div class="display_box">'+
+          '<img src="assets/img/perfil.jpg" class="image" width="49" height="45" />'+
+          '<a href="#" class="addnome" title="'+data[0].nome+'">'+data[0].nome+'</a>'+
+          '</div>').show();
+            $(".addnome").click(function() {
+              var Nome=$(this).attr('title');
+              $("#destino").val(function(i, v) {
+                return v.replace(word,Nome);
+              });
+              var E="<a class='red' contenteditable='false' href='#' >"+Nome+"</a>";
+              $("#contentbox").append(E);
+              $("#display").hide();
+              $("#msgbox").hide();
+            });
+
+          }
+        });
+      }
+    }
+    // return false;
+  });
 });
