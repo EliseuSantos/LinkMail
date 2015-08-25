@@ -1,21 +1,22 @@
 $( document ).ready(function() {
   var chat_template = $('#chat-template').html();
+  var baseUrl = 'http://' + window.location.host + '/linkmail/';
   $("#destino").keyup(function(){
-    var pesq;
-    var filter = $(this).val(), count = 0;
-    var pesqClass = ['eliseuSantos,afraniaMaria'];
-    if($(this).val().length > 3) {
-      //Pesquisa logs visíveis e verifica se contem o valor digitado no campo #pesq-log
-      pesqClass.each(function(){
-        // Se não existir agendamentos
-        if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-          alert($(this));
-          // Mostra apenas os valores pesquisados se o return for 1
-        } else {
-          alert($(this));
-        }
-      });
-    }
+    // var pesq;
+    // var filter = $(this).val(), count = 0;
+    // var pesqClass = ['eliseuSantos,afraniaMaria'];
+    // if($(this).val().length > 3) {
+    //   //Pesquisa logs visíveis e verifica se contem o valor digitado no campo #pesq-log
+    //   pesqClass.each(function(){
+    //     // Se não existir agendamentos
+    //     if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+    //       alert($(this));
+    //       // Mostra apenas os valores pesquisados se o return for 1
+    //     } else {
+    //       alert($(this));
+    //     }
+    //   });
+    // }
   });
 
   $('#chat-content').on('keyup', '#mensagem', function(evt) {
@@ -39,5 +40,20 @@ $( document ).ready(function() {
 
   $('#chat-content').on('click', '.close-chat', function() {
     $(this).closest('.chat-box').remove();
+  });
+  $('#btn-enviar').click(function() {
+    $.ajax({
+      type: 'POST',
+      url: baseUrl + 'home/setEmail',
+      dataType: "json",
+      data:{
+        destino: $('#destino').val(),
+        assunto: $('#assunto').val(),
+        mensagem: $('#mensagem').val(),
+        usuario: 'eliseu',
+        anexo: ''
+        }
+    });
+    $('#novaMensagem').modal('hide');
   });
 });

@@ -14,11 +14,11 @@
 				</a>
 			</div>
 			<div class="inbox-body">
-				<a href="#myModal" data-toggle="modal"  title="Escrever"  class="btn btn-compose">
+				<a href="#novaMensagem" data-toggle="modal"  title="Escrever"  class="btn btn-compose">
 					Escrever
 				</a>
 				<!-- Modal -->
-				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="novaMensagem" class="modal fade" style="display: none;">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -42,13 +42,13 @@
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Assunto</label>
 										<div class="col-lg-10">
-											<input type="text" placeholder="" id="inputPassword1" class="form-control">
+											<input type="text" placeholder="" id="assunto" class="form-control">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-lg-2 control-label">Mensagem</label>
 										<div class="col-lg-10">
-											<textarea rows="10" cols="30" class="form-control" id="" name=""></textarea>
+											<textarea rows="10" cols="30" class="form-control" id="mensagem" name=""></textarea>
 										</div>
 									</div>
 
@@ -59,7 +59,7 @@
 											<span>Anexo</span>
 											<input type="file" name="files[]" multiple="">
 											</span>
-											<button class="btn btn-send" type="submit">Enviar</button>
+											<button id="btn-enviar" class="btn btn-send" type="button">Enviar</button>
 										</div>
 									</div>
 								</form>
@@ -192,17 +192,19 @@
 			 		</div>
 				<table class="table table-inbox table-hover">
 					<tbody>
-						<tr class="unread">
-							<td class="inbox-small-cells">
-								<input type="checkbox" class="mail-checkbox">
-							</td>
-							<td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-							<td class="view-message  dont-show">Titulo - Mensagem não lida</td>
-							<td class="view-message ">Pequena Descrição</td>
-							<td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-							<td class="view-message  text-right">9:27 AM</td>
-						</tr>
-						<tr class="">
+						<?php foreach ($emails as $email): ?>
+							<tr class="unread">
+								<td class="inbox-small-cells">
+									<input type="checkbox" class="mail-checkbox">
+								</td>
+								<td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+								<td class="view-message  dont-show"><?= $email->assunto; ?></td>
+								<td class="view-message "><?= $email->mensagem; ?></td>
+								<td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
+								<td class="view-message  text-right">9:27 AM</td>
+							</tr>
+						<?php endforeach; ?>
+						<!-- <tr class="">
 							<td class="inbox-small-cells">
 								<input type="checkbox" class="mail-checkbox">
 							</td>
@@ -211,7 +213,7 @@
 							<td class="view-message ">Pequena Descrição</td>
 							<td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
 							<td class="view-message  text-right">9:27 AM</td>
-						</tr>
+						</tr> -->
 					</tbody>
 				</table>
 			</div>
